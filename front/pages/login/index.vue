@@ -112,6 +112,7 @@ export default {
         .then((response) => {
             
             this.$auth.setUser(response.data.user);
+            this.$toast.success("Usuário logado!", { duration: 3000 }),
             this.$router.push("/dashboard");
     
         })

@@ -118,7 +118,7 @@
           })
           .then((response) => {
             console.table(response),
-              this.$toast.success("Reserva cadastrada com sucesso!"),
+              this.$toast.success("Reserva cadastrada com sucesso!", { duration: 3000 }),
               this.$router.push("/login");
           })
           .catch(() => {});
