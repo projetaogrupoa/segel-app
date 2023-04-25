@@ -1,18 +1,18 @@
 <template>
-    <div>
-      <v-app style="background-color: white; color: white">
-        <v-layout justify-center>
-          <v-flex xs12 sm8 md4>
-            <v-card
-              class="d-flex flex-column justify-center text-center"
-              color="grey lighten-5"
-              max-width="344"
-              title="User Registration"
-            >
-              <v-toolbar height="55" color="grey darken-1">
-                <v-toolbar-title>Registro</v-toolbar-title>
-              </v-toolbar>
-              <v-container>
+  <v-row justify="center">
+      <v-card class="d-flex flex-column justify-center text-center"
+              color="grey lighten-5">
+        <v-toolbar height="55" color="#921414">
+                <v-toolbar-title>Novo Espaço</v-toolbar-title>
+        </v-toolbar>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col
+                cols="12"
+                sm="6"
+                md="6"
+              >
                 <v-text-field
                   v-model="register.name"
                   color="black"
@@ -22,7 +22,25 @@
                   class="v-text-field--outlined text-black"
                   outlined
                 ></v-text-field>
-  
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+                md="6"
+              >
+
+              <v-text-field
+                v-model="register.photo_url"
+                label="URL da imagem"
+                light
+                variant="underlined"
+                prepend-icon="mdi-camera"
+                class="v-text-field--outlined text-black"
+                outlined
+              ></v-text-field>
+              </v-col>
+
+              <v-col cols="12">
                 <v-text-field
                   v-model="register.description"
                   color="black"
@@ -31,27 +49,85 @@
                   variant="underlined"
                   class="v-text-field--outlined text-black"
                   outlined
-                ></v-text-field>         
-  
-              </v-container>
-  
-              <v-divider></v-divider>
-  
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="grey darken-1" @click="create()">
-                  Registrar
-                  <v-icon icon="mdi-chevron-right" end></v-icon>
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-app>
-    </div>
-  </template>
-  
-  <script>
+                ></v-text-field>
+              </v-col>
+
+              <v-col
+                cols="12"
+                sm="3"
+              >
+                <v-select
+                  v-model="register.available"
+                  color="black"
+                  light
+                  label="Disponível"
+                  variant="underlined"
+                  :items="['Sim', 'Não']"
+                  outlined
+                ></v-select>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="3"
+              >
+                <v-select
+                  v-model="register.flooring"
+                  color="black"
+                  light
+                  label="Tipo de piso"
+                  variant="underlined"
+                  :items="['Grama', 'Asfalto', 'Poliuretano', 'Outros']"
+                  outlined
+                ></v-select>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="3"
+              >
+                <v-select
+                  v-model="register.covered"
+                  color="black"
+                  light
+                  label="Coberto"
+                  variant="underlined"
+                  :items="['Sim', 'Não']"
+                  outlined
+                ></v-select>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="3"
+              >
+                <v-select
+                  v-model="register.lights"
+                  color="black"
+                  light
+                  label="Iluminação"
+                  variant="underlined"
+                  :items="['Sim', 'Não']"
+                  outlined
+                ></v-select>
+              </v-col>
+            </v-row>
+          </v-container>
+
+          <div>
+                <div style="float:right">
+                  <v-btn color="#921414" @click="create()">Criar</v-btn>
+                </div>
+                <div style="float:left">
+                  <v-btn to="/dashboard" color="#A2706E">Voltar</v-btn>
+                </div>
+          </div>
+
+        </v-card-text>
+
+
+      </v-card>
+  </v-row>
+</template>
+
+<script>
   export default {
     name: "Register Area",
   
