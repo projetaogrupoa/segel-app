@@ -36,4 +36,4 @@ obs: caso queira subir a branch da feature que você está fazendo antes de fina
 ```bash
 git push origin feature/seunome/nomedafeature
 ```
-e a branch vai estar disponivel no repositorio
+e a branch vai estar disponível no repositorio
