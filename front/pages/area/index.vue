@@ -1,171 +1,139 @@
 <template>
-  <div>
+  <div style="width:80%;margin-left: 20%"> 
+
   <DashboardComponent />
-  <v-row justify="center">
-      <v-card class="d-flex flex-column justify-center text-center"
-              color="grey lighten-5">
-        <v-toolbar height="55" color="#921414">
-                <v-toolbar-title>Novo Espaço</v-toolbar-title>
-        </v-toolbar>
-        <v-card-text>
-          <v-container>
-            <v-row>
-              <v-col
-                cols="12"
-                sm="6"
-                md="6"
-              >
-                <v-text-field
-                  v-model="register.name"
-                  color="black"
-                  label="Nome"
-                  light
-                  variant="underlined"
-                  class="v-text-field--outlined text-black"
-                  outlined
-                ></v-text-field>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="6"
-                md="6"
-              >
 
-              <v-text-field
-                v-model="register.photo_url"
-                label="URL da imagem"
-                light
-                variant="underlined"
-                prepend-icon="mdi-camera"
-                class="v-text-field--outlined text-black"
-                outlined
-              ></v-text-field>
-              </v-col>
+<v-row justify="center" style="margin:5%">
+      <v-col cols="12" lg = "6">
+        <v-card color="#921414"
+    class="mx-auto"
+  >
+    <v-img
+      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      cover
+    ></v-img>
+    <v-card-title >
+      Nome do espaço
+    </v-card-title>
+  </v-card>
+      </v-col>
 
-              <v-col cols="12">
-                <v-text-field
-                  v-model="register.description"
-                  color="black"
-                  light
-                  label="Descrição"
-                  variant="underlined"
-                  class="v-text-field--outlined text-black"
-                  outlined
-                ></v-text-field>
-              </v-col>
 
-              <v-col
-                cols="12"
-                sm="3"
-              >
-                <v-select
-                  v-model="register.available"
-                  color="black"
-                  light
-                  label="Disponível"
-                  variant="underlined"
-                  :items="['Sim', 'Não']"
-                  outlined
-                ></v-select>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="3"
-              >
-                <v-select
-                  v-model="register.flooring"
-                  color="black"
-                  light
-                  label="Tipo de piso"
-                  variant="underlined"
-                  :items="['Grama', 'Asfalto', 'Poliuretano', 'Outros']"
-                  outlined
-                ></v-select>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="3"
-              >
-                <v-select
-                  v-model="register.covered"
-                  color="black"
-                  light
-                  label="Coberto"
-                  variant="underlined"
-                  :items="['Sim', 'Não']"
-                  outlined
-                ></v-select>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="3"
-              >
-                <v-select
-                  v-model="register.lights"
-                  color="black"
-                  light
-                  label="Iluminação"
-                  variant="underlined"
-                  :items="['Sim', 'Não']"
-                  outlined
-                ></v-select>
-              </v-col>
-            </v-row>
-          </v-container>
 
-          <div>
+  <v-col cols="12" lg = "6">
+    <v-card color="#921414">
+      <v-card-item>
+        <v-card-title>Nome do espaço</v-card-title>
+
+        <v-card-subtitle>Descrição descrição descrição descrição descrição</v-card-subtitle>
+      </v-card-item>
+
+      <v-card-text>
+        <div class="text-subtitle-1">
+        Iluminação: S/N
+        </div>
+        <div class="text-subtitle-1">
+        Coberto: S/N
+        </div>
+        <div class="text-subtitle-1">
+        Tipo de piso: Tip
+        </div>
+      </v-card-text>
+    </v-card>
+                <div style="margin:2%">
                 <div style="float:right">
-                  <v-btn color="#921414" @click="create()">Criar</v-btn>
+                  <v-btn color="#921414" @click="">Reservar</v-btn>
                 </div>
                 <div style="float:left">
                   <v-btn to="/dashboard" color="#A2706E">Voltar</v-btn>
                 </div>
-          </div>
+                </div>
 
-        </v-card-text>
+    </v-col>
+    </v-row>
+
+   <v-row  style="margin:2%">
+    <v-col cols="12" lg = "12">
+<template>
+  <v-layout wrap>
+    <v-flex
+      xs12
+      class="mb-3"
+    >
+      <v-sheet height="500">
+        <v-calendar
+          ref="calendar"
+          v-model="start"
+          :type="type"
+          :end="end"
+          color="primary"
+          light
+        ></v-calendar>
+      </v-sheet>
+    </v-flex>
+
+    <v-flex
+      sm4
+      xs12
+      class="text-sm-left text-xs-center"
+    >
+      <v-btn @click="$refs.calendar.prev()" color="#921414">
+        <v-icon
+          dark
+          left
+        >
+          <
+        </v-icon>
+        Anterior
+      </v-btn>
+    </v-flex>
+    <v-flex
+      sm4
+      xs12
+      class="text-xs-center"
+    >
+      s
+    </v-flex>
+    <v-flex
+      sm4
+      xs12
+      class="text-sm-right text-xs-center"
+    >
+      <v-btn @click="$refs.calendar.next()" color="#921414">
+        Próximo
+        <v-icon
+          right
+          dark
+        >
+          >
+        </v-icon>
+      </v-btn>
+    </v-flex>
+  </v-layout>
+</template>
+
+    </v-col>
+    </v-row>
 
 
-      </v-card>
-  </v-row>
   </div>
 </template>
 
 <script>
   export default {
-    name: "Register Area",
-  
-    data() {
-      return {
-        terms: false,
-        register: {
-          name: "",
-          description: "",
-        },
-        show: false,
-      };
-    },
-    methods: {
-  
-      create() {
-        
-        this.$axios
-          .$post("/area/create", {
-            id: "",
-            name: this.register.name,
-            description: this.register.cpf,
-            available: true,
-            account_id: ""
-          })
-          .then((response) => {
-            console.table(response),
-              this.$toast.success("Área cadastrada com sucesso!"),
-              this.$router.push("/login");
-          })
-          .catch(() => {});
-      },
-    },
-  };
-  </script>
+    data: () => ({
+      type: 'week',
+      start: '2023-04-23',
+      end: '2023-04-29',
+    })
+  }
+</script>
+content_copy
 
-  <style scoped>
-  </style>
+﻿
+
+<style scoped>
+.v-card{
+  margin: 2%;
+}
+</style>
