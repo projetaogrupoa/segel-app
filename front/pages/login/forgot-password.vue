@@ -1,19 +1,12 @@
 <template>
-  <div>
-    <v-app style="background-color: white; color: white">
-      <v-layout justify-center>
-        <v-flex xs12 sm8 md4>
-          <v-card
-            class="d-flex flex-column justify-center text-center"
-            color="grey lighten-5"
-            max-width="344"
-            title="User Registration"            
-          >
-            <v-toolbar height="55" color="grey darken-1">
-              <v-toolbar-title>Esqueci a Senha</v-toolbar-title>
+  <div class="body" style="display:flex;justify-content:center;align-items:center;">
+
+    <v-card class="text-center" color="grey lighten-5" style="width:25%">
+            <v-toolbar class = "logo" color="#921414">
             </v-toolbar>
-            <v-container>
-              <v-text-field
+            <v-card-text>
+              <form ref="form">
+                <v-text-field
                 v-model="register.email"
                 color="black"
                 light
@@ -24,22 +17,21 @@
                     (v) => !!v || 'E-mail obrigatório',
                     (v) => /.+@.+\..+/.test(v) || 'E-mail inválido',
                   ]"
-              ></v-text-field>
-            </v-container>
+               ></v-text-field>
 
-            <v-divider></v-divider>
+                <div>
+                <div style="float: left;">
+                  <v-btn to="/login" color="#A2706E">Voltar</v-btn>
+                </div>
+                <div style="float: right;">
+                  <v-btn to="/login" color="#921414">Enviar</v-btn>
+                </div>
+                </div>
+                <br><br>
 
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn to="/login" color="grey darken-1">
-                Enviar
-                <v-icon icon="mdi-chevron-right" end></v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </v-layout>
-    </v-app>
+              </form>
+            </v-card-text>
+    </v-card>
   </div>
   
 </template>
@@ -63,6 +55,20 @@ export default {
 .text-black  {
   color: black !important;
 }
-
+.body {
+  padding: 80px;
+  background-image: url("principal.jpg");
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-size: cover;
+}
+.logo {
+  padding: 60px;
+  background-image: url("logo.png");
+  background-position: center;
+  background-repeat: no-repeat; 
+}
 </style>
+
+
 
