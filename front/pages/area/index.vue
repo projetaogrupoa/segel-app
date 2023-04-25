@@ -1,4 +1,6 @@
 <template>
+  <div>
+  <DashboardComponent />
   <v-row justify="center">
       <v-card class="d-flex flex-column justify-center text-center"
               color="grey lighten-5">
@@ -125,6 +127,7 @@
 
       </v-card>
   </v-row>
+  </div>
 </template>
 
 <script>
@@ -155,7 +158,7 @@
           })
           .then((response) => {
             console.table(response),
-              this.$toast.success("Área cadastrada com sucesso!", { duration: 3000 }),
+              this.$toast.success("Área cadastrada com sucesso!"),
               this.$router.push("/login");
           })
           .catch(() => {});
@@ -163,6 +166,6 @@
     },
   };
   </script>
-  
+
   <style scoped>
   </style>

@@ -1,58 +1,50 @@
 <template>
-    <div>
-      <v-app style="background-color: white; color: white">
-        <v-layout justify-center>
-          <v-flex xs12 sm8 md4>
-            <v-card
-              class="d-flex flex-column justify-center text-center"
-              color="grey lighten-5"
-              max-width="344"
-              title="User Registration"
-            >
-              <v-toolbar height="55" color="grey darken-1">
-                <v-toolbar-title>Registro</v-toolbar-title>
-              </v-toolbar>
-              <v-container>
-                <v-text-field
+  <div>
+    <DashboardComponent />
+  <v-row justify="center">
+      <v-card class="d-flex flex-column justify-center text-center"
+              color="grey lighten-5">
+        <v-toolbar height="55" color="#921414">
+                <v-toolbar-title>Solicitação de reserva</v-toolbar-title>
+        </v-toolbar>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col
+                cols="12"
+                sm="6"
+                md="6"
+              >
+              <v-text-field
                   v-model="register.value"
                   color="black"
-                  label="Valor"
+                  label="Título"
                   light
                   variant="underlined"
                   class="v-text-field--outlined text-black"
                   outlined
                 ></v-text-field>
-  
-                <v-text-field
-                  v-model="register.reservation_date"
+              </v-col>
+
+              <v-col
+                cols="12"
+                sm="6"
+                md="6"
+              >
+              <v-select
+                  v-model="register.lights"
                   color="black"
                   light
-                  label="Data da Reserva"
+                  label="Espaço"
                   variant="underlined"
-                  class="v-text-field--outlined text-black"
+                  :items="['Campo A', 'Campo B', 'etc']"
                   outlined
-                ></v-text-field>
-  
-                <v-text-field
-                  v-model="register.time_start"
-                  color="black"
-                  light
-                  label="Horário de Início"
-                  variant="underlined"
-                  class="v-text-field--outlined text-black"
-                  outlined
-                ></v-text-field>
-  
-                <v-text-field
-                  v-model="register.time_end"
-                  color="black"
-                  light
-                  label="Horário de Fim"
-                  variant="underlined"
-                  class="v-text-field--outlined text-black"
-                  outlined
-                ></v-text-field>
-  
+                  disabled
+                ></v-select>
+              </v-col>
+
+              <v-col cols="12">
+
                 <v-text-field
                   v-model="register.justification"
                   color="black"
@@ -62,26 +54,89 @@
                   class="v-text-field--outlined text-black"
                   outlined
                 ></v-text-field>
-  
-  
-              </v-container>
-  
-              <v-divider></v-divider>
-  
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="grey darken-1" @click="create()">
-                  Registrar
-                  <v-icon icon="mdi-chevron-right" end></v-icon>
-                </v-btn>
-              </v-card-actions>
-            </v-card>
-          </v-flex>
-        </v-layout>
-      </v-app>
-    </div>
-  </template>
-  
+
+              </v-col>
+
+              <v-col
+                cols="12"
+                sm="3"
+              >
+              <v-text-field
+                  v-model="register.reservation_date"
+                  color="black"
+                  light
+                  label="Data da Reserva"
+                  variant="underlined"
+                  class="v-text-field--outlined text-black"
+                  type= "date"
+                  outlined
+                ></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="3"
+              >
+                <v-text-field
+                  v-model="register.time_end"
+                  color="black"
+                  light
+                  label="Horário de Fim"
+                  variant="underlined"
+                  class="v-text-field--outlined text-black"
+                  outlined
+                  type= "time"
+                ></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="3"
+              >
+                  <v-text-field
+                  v-model="register.time_start"
+                  color="black"
+                  light
+                  label="Horário de Início"
+                  variant="underlined"
+                  class="v-text-field--outlined text-black"
+                  outlined
+                  type= "time"
+                ></v-text-field>
+              </v-col>
+
+              <v-col
+                cols="12"
+                sm="3"
+              >
+                <v-select
+                  v-model="register.type"
+                  color="black"
+                  light
+                  label="Tipo"
+                  variant="underlined"
+                  :items="['Aula', 'Pesquisa/Extenção', 'Outros']"
+                  outlined
+                ></v-select>
+              </v-col>
+            </v-row>
+          </v-container>
+
+          <div>
+                <div style="float:right">
+                  <v-btn color="#921414" @click="create()">Solicitar</v-btn>
+                </div>
+                <div style="float:left">
+                  <v-btn to="/dashboard" color="#A2706E">Voltar</v-btn>
+                </div>
+          </div>
+
+        </v-card-text>
+
+
+      </v-card>
+  </v-row>
+  </div>
+</template>
+ 
   <script>
   export default {
     name: "Register",
@@ -111,14 +166,14 @@
             time_start: this.register.time_start,
             time_end: this.register.time_end,
             justification: this.register.justification,
-            reservation_type: "1",
+            reservation_type: this.register.type,
             status: str,
             area_id: str,
             account_id: str,
           })
           .then((response) => {
             console.table(response),
-              this.$toast.success("Reserva cadastrada com sucesso!", { duration: 3000 }),
+              this.$toast.success("Reserva cadastrada com sucesso!"),
               this.$router.push("/login");
           })
           .catch(() => {});
