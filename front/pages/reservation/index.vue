@@ -1,186 +1,69 @@
 <template>
-  <div>
+  <div style="width:80%;margin-left: 20%;"> 
     <DashboardComponent />
-  <v-row justify="center">
-      <v-card class="d-flex flex-column justify-center text-center"
-              color="grey lighten-5">
-        <v-toolbar height="55" color="#921414">
-                <v-toolbar-title>Solicitação de reserva</v-toolbar-title>
-        </v-toolbar>
-        <v-card-text>
-          <v-container>
-            <v-row>
-              <v-col
-                cols="12"
-                sm="6"
-                md="6"
-              >
-              <v-text-field
-                  v-model="register.value"
-                  color="black"
-                  label="Título"
-                  light
-                  variant="underlined"
-                  class="v-text-field--outlined text-black"
-                  outlined
-                ></v-text-field>
-              </v-col>
-
-              <v-col
-                cols="12"
-                sm="6"
-                md="6"
-              >
-              <v-select
-                  v-model="register.lights"
-                  color="black"
-                  light
-                  label="Espaço"
-                  variant="underlined"
-                  :items="['Campo A', 'Campo B', 'etc']"
-                  outlined
-                  disabled
-                ></v-select>
-              </v-col>
-
-              <v-col cols="12">
-
-                <v-text-field
-                  v-model="register.justification"
-                  color="black"
-                  light
-                  label="Justificativa"
-                  variant="underlined"
-                  class="v-text-field--outlined text-black"
-                  outlined
-                ></v-text-field>
-
-              </v-col>
-
-              <v-col
-                cols="12"
-                sm="3"
-              >
-              <v-text-field
-                  v-model="register.reservation_date"
-                  color="black"
-                  light
-                  label="Data da Reserva"
-                  variant="underlined"
-                  class="v-text-field--outlined text-black"
-                  type= "date"
-                  outlined
-                ></v-text-field>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="3"
-              >
-                <v-text-field
-                  v-model="register.time_end"
-                  color="black"
-                  light
-                  label="Horário de Fim"
-                  variant="underlined"
-                  class="v-text-field--outlined text-black"
-                  outlined
-                  type= "time"
-                ></v-text-field>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="3"
-              >
-                  <v-text-field
-                  v-model="register.time_start"
-                  color="black"
-                  light
-                  label="Horário de Início"
-                  variant="underlined"
-                  class="v-text-field--outlined text-black"
-                  outlined
-                  type= "time"
-                ></v-text-field>
-              </v-col>
-
-              <v-col
-                cols="12"
-                sm="3"
-              >
-                <v-select
-                  v-model="register.type"
-                  color="black"
-                  light
-                  label="Tipo"
-                  variant="underlined"
-                  :items="['Aula', 'Pesquisa/Extenção', 'Outros']"
-                  outlined
-                ></v-select>
-              </v-col>
-            </v-row>
-          </v-container>
-
-          <div>
-                <div style="float:right">
-                  <v-btn color="#921414" @click="create()">Solicitar</v-btn>
-                </div>
-                <div style="float:left">
-                  <v-btn to="/dashboard" color="#A2706E">Voltar</v-btn>
-                </div>
-          </div>
-
-        </v-card-text>
+<v-row text-color:black>
 
 
-      </v-card>
-  </v-row>
+    <v-col cols="12" md="4">
+	<v-card
+    class="mx-auto"
+    max-width="368"
+    light
+  >
+  <v-card-title>
+      Nome do espaço
+    </v-card-title>
+    <v-card-text>
+      		<v-list-item-title>Tipo de reserva: Tipo </v-list-item-title>
+	        <v-list-item-subtitle>Justificativa: Justificativa</v-list-item-subtitle>
+		    <br>	    
+		    <v-list-item-title>Responsável: Nome do usuário</v-list-item-title>
+	        <v-list-item-subtitle>Tipo do usuário</v-list-item-subtitle>
+	        <br>	    
+		    <v-list-item-title>Data</v-list-item-title>
+	        <v-list-item-subtitle>Inicio-Fim</v-list-item-subtitle>     
+	        <br>    
+		    <v-list-item-title>Status: status</v-list-item-title>
+	        <v-list-item-subtitle>Preço: valor</v-list-item-subtitle>   
+	</v-card-text>
+	</v-list-item>
+    <v-divider></v-divider>
+    <v-card-actions class="d-flex py-3 justify-space-between">
+      <v-btn color="#A2706E" dark @click="">
+       	Rejeitar
+      </v-btn>
+      <v-btn color="#921414" dark  @click="expand = !expand">
+        {{ !expand ? 'Aceitar' : 'Voltar' }}
+      </v-btn>
+    </v-card-actions>
+        <v-expand-transition>
+      <div v-if="expand">
+     <v-card-actions class="d-flex py-3 justify-space-between">   
+      <v-btn color="#A2706E" dark @click="">
+       	Isento
+      </v-btn>
+      <v-btn color="#921414" dark @click="">
+       	Emitir boleto
+      </v-btn>
+    </v-card-actions>
+      </div>
+    </v-expand-transition>
+  </v-card>
+    </v-col>
+
+
+</v-row>
   </div>
 </template>
  
-  <script>
+<script>
   export default {
-    name: "Register",
-  
-    data() {
-      return {
-        terms: false,
-        register: {
-          value: "",
-          reservation_date: "",
-          time_start: "",
-          time_end: "",
-          justification: "",
-        },
-        show: false,
-      };
-    },
-    methods: {
-  
-      create() {
-        
-        this.$axios
-          .$post("/reservations/create", {
-            id: "",
-            value: this.register.value,
-            reservation_date: this.register.reservation_date,
-            time_start: this.register.time_start,
-            time_end: this.register.time_end,
-            justification: this.register.justification,
-            reservation_type: this.register.type,
-            status: str,
-            area_id: str,
-            account_id: str,
-          })
-          .then((response) => {
-            console.table(response),
-              this.$toast.success("Reserva cadastrada com sucesso!"),
-              this.$router.push("/login");
-          })
-          .catch(() => {});
-      },
-    },
-  };
-  </script>
-  
+    data: () => ({
+      expand: false,
+      time: 0,
+
+    }),
+  }
+</script>
   <style scoped>
   </style>
