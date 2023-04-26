@@ -1,17 +1,17 @@
 <template>
-  <div> 
+  <div style="width:80%;margin-left: 20%;">  
 
   <DashboardComponent />
 <v-row justify="end" style="margin-top: 1%">
-      <v-col cols="12"  md="2" justify="end">
+      <v-col cols="12"  md="3" justify="end">
       	<v-btn color="#A2706E" @click="">Filtrar</v-btn>
-        <v-btn color="#921414" @click="">Criar espaço</v-btn>
+        <v-btn color="#921414" to="/area/new-area">Criar espaço</v-btn>
       </v-col>
 </v-row>
 
 <v-row>
     <v-col cols="12" md="4">
-	<v-card color="#921414"
+	<v-card color="#921414" to="/area"
     class="mx-auto"
     max-width="344"
   >

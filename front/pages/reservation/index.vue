@@ -1,8 +1,16 @@
 <template>
   <div style="width:80%;margin-left: 20%;"> 
     <DashboardComponent />
-<v-row text-color:black>
 
+
+    <v-row justify="end" style="margin-top: 1%">
+      <v-col cols="12"  md="12" justify="end">
+        <v-btn color="#921414" to="/reservation/done">Concluídas</v-btn>
+        <v-btn color="#921414" to="/reservation/in-analysis">Em análise</v-btn>
+        <v-btn color="#921414" to="/reservation/rejected">Rejeitadas</v-btn>
+      </v-col>
+</v-row>
+<v-row text-color:black>
 
     <v-col cols="12" md="4">
 	<v-card

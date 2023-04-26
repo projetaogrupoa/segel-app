@@ -14,6 +14,7 @@
     ></v-img>
     <v-card-title >
       Nome do espaço
+      <v-btn style="margin-left:2%" to="/area/edit-area" color="#A2706E">Editar</v-btn>
     </v-card-title>
   </v-card>
       </v-col>
@@ -42,7 +43,7 @@
     </v-card>
                 <div style="margin:2%">
                 <div style="float:right">
-                  <v-btn color="#921414" @click="">Reservar</v-btn>
+                  <v-btn to="/reservation/new-reservation"color="#921414" @click="">Reservar</v-btn>
                 </div>
                 <div style="float:left">
                   <v-btn to="/dashboard" color="#A2706E">Voltar</v-btn>
