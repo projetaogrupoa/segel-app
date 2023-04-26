@@ -19,14 +19,13 @@
       </v-card>
     </v-col>    
     </template>
-  </v-row>
 
+  </v-row>
 
   </div>
 </template>
 
 <script>
-
   export default {
     name: "Area",
     data() {
@@ -58,6 +57,6 @@
 
 <style scoped>
 .v-card{
-	margin: 2%;
+  margin: 2%;
 }
 </style>

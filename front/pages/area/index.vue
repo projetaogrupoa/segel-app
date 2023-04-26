@@ -1,5 +1,5 @@
 <template>
-  <div style="width:80%;margin-left: 20%"> 
+  <div> 
 
   <DashboardComponent />
 <template v-for="area in areas">
@@ -65,9 +65,9 @@
             <v-flex sm4 xs12 class="text-sm-left text-xs-center">
               <v-btn @click="$refs.calendar.prev()" color="#921414">
                 <v-icon dark left>
-                  < </v-icon>
+                  </v-icon>
                     Anterior
-              </v-btn>
+                  </v-btn>
             </v-flex>
             <v-flex sm4 xs12 class="text-xs-center">
               s
