@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-row justify="center" style="margin:5%">
+    <v-row justify="center">
       <v-col cols="12" lg="12">
         <v-card color="#921414">
           <v-card-item>
@@ -31,7 +31,9 @@
         </div>
 
       </v-col>
-      <v-row text-color:black>
+      
+    </v-row>
+    <v-row justify="center">
         <v-col cols="12" lg="12">
           <v-col cols="12" md="4">
             <v-card class="mx-auto" max-width="368" light>
@@ -54,7 +56,6 @@
         </v-col>
 
       </v-row>
-    </v-row>
 
     <v-row style="margin:2%">
       <v-col cols="12" lg="12">

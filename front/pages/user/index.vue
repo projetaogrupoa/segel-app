@@ -46,6 +46,7 @@
 
 export default {
   name: "Area",
+  layout: "menu",
   data() {
     return {
       users: [],

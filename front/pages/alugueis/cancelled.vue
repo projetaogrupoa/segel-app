@@ -4,7 +4,7 @@
       <v-col cols="12" md="12" justify="end">
         <v-btn color="#A2706E" to="/alugueis/paid">Concluídas</v-btn>
         <v-btn color="#A2706E" to="/alugueis/awaiting-payment">Aguardando pagamento</v-btn>
-        <v-btn color="#921414" to="/alugueis/paid">Rejeitadas</v-btn>
+        <v-btn color="#921414" to="/alugueis/cancelled">Rejeitadas</v-btn>
       </v-col>
     </v-row>
     <v-row text-color:black>

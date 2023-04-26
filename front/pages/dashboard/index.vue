@@ -3,13 +3,12 @@
 
   <DashboardComponent />
   <v-row justify="end" style="margin-top: 1%">
-        <v-col cols="12"  md="3" justify="end">
-          <v-btn color="#A2706E" @click="">Filtrar</v-btn>
+        <v-col cols="12"  md="2" justify="end">
           <v-btn color="#921414" to="/area/new-area">Criar espaço</v-btn>
         </v-col>
   </v-row>
+<v-row>    
   <template v-for="area in areas">
-  <v-row>      
     <v-col cols="12" md="4">
       <v-card color="#921414" to="/area" class="mx-auto" max-width="344" @click.native="handleClick(area.name)">
         <v-img src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" height="200px" cover></v-img>
@@ -19,8 +18,9 @@
         <v-card-subtitle>{{ area.description }}</v-card-subtitle>
       </v-card>
     </v-col>    
+    </template>
   </v-row>
-</template>
+
 
   </div>
 </template>

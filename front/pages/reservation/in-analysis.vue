@@ -4,12 +4,12 @@
       <v-col cols="12" md="12" justify="end">
         <v-btn color="#A2706E" to="/reservation/done">Concluídas</v-btn>
         <v-btn color="#921414" to="/reservation/in-analysis">Em análise</v-btn>
-        <v-btn color="#921414" to="/reservation/rejected">Rejeitadas</v-btn>
+        <v-btn color="#A2706E" to="/reservation/rejected">Rejeitadas</v-btn>
       </v-col>
 </v-row>
-<template v-for="reservation in reservations">
-  <v-row text-color:black>
 
+  <v-row text-color:black>
+<template v-for="reservation in reservations">
       <v-col cols="12" md="4">
     <v-card
       class="mx-auto"
@@ -57,15 +57,18 @@
     </v-card>
       </v-col>
 
-
-  </v-row>
 </template>
+  </v-row>
+
   </div>
 </template>
  
 <script>
+
   export default {
+  layout: "menu",
     data: () => {
+      
       return {
         reservations: [],
       }

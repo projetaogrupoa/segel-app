@@ -1,6 +1,5 @@
 <template>
-  <div style="width:80%; margin-top:5%">
-    <DashboardComponent />
+  <div style="margin-top:5%">
     <v-row justify="center">
       <v-card class="d-flex flex-column justify-center text-center" color="grey lighten-5">
         <v-toolbar height="55" color="#921414">
