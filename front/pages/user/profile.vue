@@ -4,9 +4,9 @@
       <v-col cols="12" lg="12">
         <v-card color="#921414">
           <v-card-item>
-            <v-card-title>Nome do usuário</v-card-title>
+            <v-card-title>nome</v-card-title>
 
-            <v-card-subtitle>Tipo</v-card-subtitle>
+            <v-card-subtitle>tipo de usuario</v-card-subtitle>
           </v-card-item>
 
           <v-card-text>
@@ -34,26 +34,28 @@
       
     </v-row>
     <v-row justify="center">
+      <template v-for="reservation in reservations">
         <v-col cols="12" lg="12">
           <v-col cols="12" md="4">
             <v-card class="mx-auto" max-width="368" light>
               <v-card-title>
-                Nome do espaço
+                {{ reservation.area_id }}
               </v-card-title>
               <v-card-text>
-                <v-list-item-title>Tipo de reserva: Tipo </v-list-item-title>
-                <v-list-item-subtitle>Justificativa: Justificativa</v-list-item-subtitle>
+                <v-list-item-title>Tipo de reserva: {{ reservation.reservation_type }} </v-list-item-title>
+                <v-list-item-subtitle>Justificativa: {{ reservation.justification }}</v-list-item-subtitle>
                 <br>
-                <v-list-item-title>Data</v-list-item-title>
-                <v-list-item-subtitle>Inicio-Fim</v-list-item-subtitle>
-                <br>
-                <v-list-item-title>Status: status</v-list-item-title>
+                <v-list-item-title>{{ reservation.reservation_date }}</v-list-item-title>
+                <v-list-item-subtitle>{{ reservation.time_start }}-{{ reservation.time_end }}</v-list-item-subtitle>     
+                <br>    
+                <v-list-item-title>Status: {{ reservation.status }}</v-list-item-title>
                 <v-list-item-subtitle>Preço: valor</v-list-item-subtitle>
               </v-card-text>
               <v-divider></v-divider>
             </v-card>
           </v-col>
         </v-col>
+      </template>
 
       </v-row>
 
@@ -66,14 +68,54 @@
 
   </div>
 </template>
-﻿
+
 <script>
 export default {
   layout: "menu",
   data() {
-    return {};
+    return {
+      users: {},
+      reservations: [],
+    }
   },
-};
+  mounted() {
+    
+    this.getUsers();  
+    this.getReservations();
+  },
+  
+  methods: {
+    getUsers() {
+      const cpf_user = localStorage.getItem("cpf");
+      this.$axios.get('/users/list', {
+        params: {
+            cpf: cpf_user
+        }
+      })
+        .then((response) => {
+          this.users = response.data;            
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    },
+
+    getReservations() {
+        const user_id = localStorage.getItem("user");
+        this.$axios.get('/reservation/list', {
+        params: {
+            account_id: user_id
+        }
+      })
+          .then((response) => {
+            this.reservations = response.data;            
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+      },
+  }
+  }
 </script>
 
 <style scoped>

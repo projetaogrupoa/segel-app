@@ -111,7 +111,9 @@ export default {
         .loginWith("local", {data: User})
         .then((response) => {
             console.log(response.data.user.id)
+            console.log(response.data.user.cpf)
             localStorage.setItem("user", response.data.user.id)
+            localStorage.setItem("cpf", response.data.user.cpf)
             this.$auth.setUser(response.data.user);
             this.$toast.success("Usuário logado!", { duration: 3000 }),
             this.$router.push("/dashboard");

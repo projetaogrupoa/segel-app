@@ -71,6 +71,7 @@
       
       return {
         reservations: [],
+        expand: false,
       }
     },
     mounted() {

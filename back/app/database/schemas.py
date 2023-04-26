@@ -2,6 +2,7 @@ from pydantic import BaseModel, Field
 import datetime
 
 class ReservationBase(BaseModel):
+    id: str
     value: int | None = None
     reservation_date: str
     time_start: str
@@ -41,9 +42,10 @@ class ReservationUpdate(BaseModel):
     account_id: str
 
 class AreaBase(BaseModel):
+    id: str
     name: str
 
-class Area(AreaBase):
+class Area(AreaBase):       
     description: str
     available: bool
     lighting: str
@@ -93,6 +95,7 @@ class AccountBase(BaseModel):
     pass
 
 class Account(AccountBase):
+    id: str
     cpf: str
     name: str
     email: str

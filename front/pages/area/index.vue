@@ -2,8 +2,8 @@
   <div style="width:80%;margin-left: 20%"> 
 
   <DashboardComponent />
-
-<v-row justify="center" style="margin:5%">
+<template v-for="area in areas">
+  <v-row justify="center" style="margin:5%">
       <v-col cols="12" lg = "6">
         <v-card color="#921414"
     class="mx-auto"
@@ -13,29 +13,29 @@
       cover
     ></v-img>
     <v-card-title >
-      {{ $route.params.name }}
+      {{ area.name }}
       <v-btn style="margin-left:2%" to="/area/edit-area" color="#A2706E">Editar</v-btn>
     </v-card-title>
-  </v-card>
+    </v-card>
       </v-col>
 
       <v-col cols="12" lg="6">
         <v-card color="#921414">
           <v-card-item>
-            <v-card-title>Nome do espaço</v-card-title>
+            <v-card-title>{{ area.name }}</v-card-title>
 
-            <v-card-subtitle>Descrição descrição descrição descrição descrição</v-card-subtitle>
+            <v-card-subtitle>{{ area.description }}</v-card-subtitle>
           </v-card-item>
 
           <v-card-text>
             <div class="text-subtitle-1">
-              Iluminação: S/N
+              Iluminação: {{ area.lighting }}
             </div>
             <div class="text-subtitle-1">
-              Coberto: S/N
+              Coberto: {{ area.covered }}
             </div>
             <div class="text-subtitle-1">
-              Tipo de piso: Tip
+              Tipo de piso: {{ area.floor_type }}
             </div>
           </v-card-text>
         </v-card>
@@ -50,6 +50,7 @@
 
       </v-col>
     </v-row>
+  </template>
 
     <v-row style="margin:2%">
       <v-col cols="12" lg="12">
@@ -91,15 +92,32 @@
 
 <script>
   export default {
-    data: () => ({
-      type: 'week',
-      start: '2023-04-23',
-      end: '2023-04-29',
-    }),
-
+    name: "Area",
+    data() {
+      return {
+        areas: [],
+        type: 'week',
+        start: '2023-04-23',
+        end: '2023-04-29',
+      }
+    },
+    mounted() {
+      this.getAreas();  
+    },
     
-
-  }
+    methods: {
+      getAreas() {
+        const area_id = localStorage.getItem("area_id");
+        this.$axios.get('/area/list')
+          .then((response) => {
+            this.areas = response.data;            
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+      },
+    }
+    }
 </script>
 
 

@@ -168,7 +168,7 @@
           .then((response) => {
             console.table(response),
               this.$toast.success("Área cadastrada com sucesso!", { duration: 3000 }),
-              this.$router.push("/login");
+              this.$router.push("/dashboard");
           })
           .catch(() => {});
       },

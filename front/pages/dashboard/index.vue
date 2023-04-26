@@ -10,7 +10,7 @@
 <v-row>    
   <template v-for="area in areas">
     <v-col cols="12" md="4">
-      <v-card color="#921414" to="/area" class="mx-auto" max-width="344" @click.native="handleClick(area.name)">
+      <v-card color="#921414" to="/area" class="mx-auto" max-width="344" @click.native="getAreaId(area.id)">
         <v-img src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" height="200px" cover></v-img>
         <v-card-title>
           <div>{{ area.name }}</div>
@@ -48,9 +48,9 @@
             console.log(error);
           })
       },
-      handleClick(name) {
-      console.log('Espaço clicado:', name);
-      this.$router.push({ name: 'area/', params: { name: name }});
+      getAreaId(area_id) {
+      console.log('Espaço clicado:', area_id);
+      localStorage.setItem("area_id", area_id);
     }
     }
   }

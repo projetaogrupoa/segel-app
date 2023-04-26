@@ -10,7 +10,7 @@ from auth.manager import get_current_user
 router = APIRouter(
     prefix="/users",
     tags=["user"],
-    dependencies=[Depends(get_current_user)],
+    #dependencies=[Depends(get_current_user)],
     responses={404: {"description": "Not found"}},
 )
 
