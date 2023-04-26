@@ -66,6 +66,8 @@
  
 <script>
   export default {
+    layout: "menu",
+    
     data: () => ({
       expand: false,
       time: 0,

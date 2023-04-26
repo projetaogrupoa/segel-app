@@ -133,7 +133,8 @@
 <script>
   export default {
     name: "Area",
-  
+    layout: "menu",
+    
     data() {
       return {
         terms: false,
