@@ -13,7 +13,7 @@
       cover
     ></v-img>
     <v-card-title >
-      Nome do espaço
+      {{ $route.params.name }}
       <v-btn style="margin-left:2%" to="/area/edit-area" color="#A2706E">Editar</v-btn>
     </v-card-title>
   </v-card>
@@ -126,7 +126,10 @@
       type: 'week',
       start: '2023-04-23',
       end: '2023-04-29',
-    })
+    }),
+
+    
+
   }
 </script>
 content_copy
