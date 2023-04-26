@@ -109,7 +109,7 @@ export default {
           cpf: this.register.cpf,
           email: this.register.email,
           phone_number: this.register.phone,
-          user_type: "1",
+          user_type: "0",
           available: true,
           hashed_password: this.register.password,
         })
