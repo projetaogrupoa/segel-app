@@ -1,6 +1,5 @@
 <template>
-<br><br>
-  <div style="width:80%;margin-left: 20%;>  
+  <div style="width:80%;margin-left: 20%; margin-top:5%"> 
     <DashboardComponent />
   <v-row justify="center">
       <v-card class="d-flex flex-column justify-center text-center"
@@ -158,7 +157,6 @@
     methods: {
   
       create() {
-        const user_id = localStorage.getItem("user");
         
         this.$axios
           .$post("/reservations/create", {
@@ -168,14 +166,14 @@
             time_start: this.register.time_start,
             time_end: this.register.time_end,
             justification: this.register.justification,
-            reservation_type: "1",
+            reservation_type: this.register.type,
             status: str,
             area_id: str,
-            account_id: user_id,
+            account_id: str,
           })
           .then((response) => {
             console.table(response),
-              this.$toast.success("Reserva cadastrada com sucesso!", { duration: 3000 }),
+              this.$toast.success("Reserva cadastrada com sucesso!"),
               this.$router.push("/login");
           })
           .catch(() => {});

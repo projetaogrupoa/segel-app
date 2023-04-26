@@ -12,7 +12,7 @@
 <v-row text-color:black>
 
     <v-col cols="12" md="4">
-	<v-card
+  <v-card
     class="mx-auto"
     max-width="368"
     light
@@ -21,19 +21,19 @@
       Nome do espaço
     </v-card-title>
     <v-card-text>
-      		<v-list-item-title>Tipo de reserva: Tipo </v-list-item-title>
-	        <v-list-item-subtitle>Justificativa: Justificativa</v-list-item-subtitle>
-		    <br>	    
-		    <v-list-item-title>Responsável: Nome do usuário</v-list-item-title>
-	        <v-list-item-subtitle>Tipo do usuário</v-list-item-subtitle>
-	        <br>	    
-		    <v-list-item-title>Data</v-list-item-title>
-	        <v-list-item-subtitle>Inicio-Fim</v-list-item-subtitle>     
-	        <br>    
-		    <v-list-item-title>Status: status</v-list-item-title>
-	        <v-list-item-subtitle>Preço: valor</v-list-item-subtitle>   
-	</v-card-text>
-	</v-list-item>
+          <v-list-item-title>Tipo de reserva: Tipo </v-list-item-title>
+          <v-list-item-subtitle>Justificativa: Justificativa</v-list-item-subtitle>
+        <br>      
+        <v-list-item-title>Responsável: Nome do usuário</v-list-item-title>
+          <v-list-item-subtitle>Tipo do usuário</v-list-item-subtitle>
+          <br>      
+        <v-list-item-title>Data</v-list-item-title>
+          <v-list-item-subtitle>Inicio-Fim</v-list-item-subtitle>     
+          <br>    
+        <v-list-item-title>Status: status</v-list-item-title>
+          <v-list-item-subtitle>Preço: valor</v-list-item-subtitle>   
+  </v-card-text>
+  </v-list-item>
     <v-divider></v-divider>
   </v-card>
     </v-col>
