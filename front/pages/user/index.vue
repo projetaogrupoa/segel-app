@@ -1,5 +1,5 @@
 <template>
-  <div style="width:80%;">
+  <div>
     <v-row justify="end" style="margin-top: 1%">
 
     </v-row>

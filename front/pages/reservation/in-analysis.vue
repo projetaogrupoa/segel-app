@@ -1,5 +1,5 @@
 <template>
-  <div style="width:80%;">
+  <div>
     <v-row justify="end" style="margin-top: 1%">
       <v-col cols="12" md="12" justify="end">
         <v-btn color="#A2706E" to="/reservation/done">Concluídas</v-btn>
@@ -71,6 +71,7 @@
       
       return {
         reservations: [],
+        expand: false,
       }
     },
     mounted() {

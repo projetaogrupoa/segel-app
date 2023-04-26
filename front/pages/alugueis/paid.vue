@@ -1,5 +1,5 @@
 <template>
-  <div style="width:80%;">
+  <div>
     <v-row justify="end" style="margin-top: 1%">
       <v-col cols="12" md="12" justify="end">
         <v-btn color="#921414" to="/alugueis/paid">Concluídas</v-btn>

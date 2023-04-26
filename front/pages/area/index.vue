@@ -1,7 +1,6 @@
 <template>
-  <div style="width:80%;margin-left: 20%"> 
+  <div> 
 
-  <DashboardComponent />
 
 <v-row justify="center" style="margin:5%">
       <v-col cols="12" lg = "6">
@@ -91,6 +90,7 @@
 
 <script>
   export default {
+    layout: "menu",
     data: () => ({
       type: 'week',
       start: '2023-04-23',
