@@ -1,6 +1,5 @@
 <template>
  <div> 
-  <DashboardComponent />
   <v-row justify="center">
       <v-card class="d-flex flex-column justify-center text-center"
               color="grey lighten-5">

@@ -12,7 +12,7 @@
 <style>
 .main-content {
   background-color: #ffffff;
-  margin-left: 25px; /* change the value as needed */
+  margin-left: 255px;
 }
 </style>
 

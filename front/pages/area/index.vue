@@ -1,5 +1,5 @@
 <template>
-  <div style="width:80%;margin-left: 20%">
+  <div style="width:80%;">
     <v-row justify="center" style="margin:5%">
       <v-col cols="12" lg="6">
         <v-card color="#921414" class="mx-auto">
