@@ -102,6 +102,7 @@
     methods: {
   
       create() {
+        const user_id = localStorage.getItem("user");
         
         this.$axios
           .$post("/reservations/create", {
@@ -114,7 +115,7 @@
             reservation_type: "1",
             status: str,
             area_id: str,
-            account_id: str,
+            account_id: user_id,
           })
           .then((response) => {
             console.table(response),

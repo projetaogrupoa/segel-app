@@ -110,7 +110,8 @@ export default {
       await this.$auth
         .loginWith("local", {data: User})
         .then((response) => {
-            
+            console.log(response.data.user.id)
+            localStorage.setItem("user", response.data.user.id)
             this.$auth.setUser(response.data.user);
             this.$toast.success("Usuário logado!", { duration: 3000 }),
             this.$router.push("/dashboard");
