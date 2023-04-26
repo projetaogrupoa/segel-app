@@ -132,14 +132,19 @@
 
 <script>
   export default {
-    name: "Register Area",
+    name: "Area",
   
     data() {
       return {
         terms: false,
         register: {
           name: "",
+          photo_url: "",
           description: "",
+          available: "",
+          flooring: "",
+          covered: "",
+          lights: "",
         },
         show: false,
       };
@@ -147,18 +152,22 @@
     methods: {
   
       create() {
-        
+        const user_id = localStorage.getItem("user");
         this.$axios
           .$post("/area/create", {
             id: "",
             name: this.register.name,
-            description: this.register.cpf,
-            available: true,
-            account_id: ""
+            photo_url: this.register.photo_url,
+            description: this.register.description,
+            available: this.register.available === 'Sim',
+            floor_type: this.register.flooring,
+            covered: this.register.covered,
+            lighting: this.register.lights,
+            account_id: user_id,
           })
           .then((response) => {
             console.table(response),
-              this.$toast.success("Área cadastrada com sucesso!"),
+              this.$toast.success("Área cadastrada com sucesso!", { duration: 3000 }),
               this.$router.push("/login");
           })
           .catch(() => {});
