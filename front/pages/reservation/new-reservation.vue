@@ -27,14 +27,15 @@
 
               <v-col cols="12" sm="3">
                 <v-text-field v-model="register.reservation_date" color="black" light label="Data da Reserva"
-                  variant="underlined" class="v-text-field--outlined text-black" type="date" outlined></v-text-field>
+                  variant="underlined" class="v-text-field--outlined text-black" type="date" outlined
+                ></v-text-field>
               </v-col>
               <v-col cols="12" sm="3">
-                <v-text-field v-model="register.time_end" color="black" light label="Horário de Fim" variant="underlined"
+                <v-text-field v-model="register.time_start" color="black" light label="Horário de Início" variant="underlined"
                   class="v-text-field--outlined text-black" outlined type="time"></v-text-field>
               </v-col>
               <v-col cols="12" sm="3">
-                <v-text-field v-model="register.time_start" color="black" light label="Horário de Início"
+                <v-text-field v-model="register.time_end" color="black" light label="Horário de Fim"
                   variant="underlined" class="v-text-field--outlined text-black" outlined type="time"></v-text-field>
               </v-col>
 
@@ -83,24 +84,23 @@ export default {
   methods: {
 
     create() {
-
+      const user_id = localStorage.getItem("user");
+      const area_id = localStorage.getItem("area_id");
       this.$axios
-        .$post("/reservations/create", {
+        .$post("/reservation/create", {
           id: "",
-          value: this.register.value,
           reservation_date: this.register.reservation_date,
           time_start: this.register.time_start,
           time_end: this.register.time_end,
           justification: this.register.justification,
           reservation_type: this.register.type,
-          status: str,
-          area_id: str,
-          account_id: str,
+          area_id: area_id,
+          account_id: user_id,
         })
         .then((response) => {
           console.table(response),
             this.$toast.success("Reserva cadastrada com sucesso!"),
-            this.$router.push("/login");
+            this.$router.push("/dashboard");
         })
         .catch(() => { });
     },

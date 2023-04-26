@@ -1,23 +1,24 @@
 <template>
   <div>
     <v-row justify="center">
+      <template v-for="user in users">
       <v-col cols="12" lg="12">
         <v-card color="#921414">
           <v-card-item>
-            <v-card-title>nome</v-card-title>
+            <v-card-title>{{ user.name }}</v-card-title>
 
-            <v-card-subtitle>tipo de usuario</v-card-subtitle>
+            <v-card-subtitle>{{ user.user_type }}</v-card-subtitle>
           </v-card-item>
 
           <v-card-text>
             <div class="text-subtitle-1">
-              CPF: cpf
+              CPF: {{ user.cpf }}
             </div>
             <div class="text-subtitle-1">
-              Telefone: telefone
+              Telefone: {{ user.phone_number }}
             </div>
             <div class="text-subtitle-1">
-              Email: email
+              Email: {{ user.email }}
             </div>
           </v-card-text>
         </v-card>
@@ -31,6 +32,7 @@
         </div>
 
       </v-col>
+    </template>
       
     </v-row>
     <v-row justify="center">

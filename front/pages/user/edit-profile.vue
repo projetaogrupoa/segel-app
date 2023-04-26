@@ -47,7 +47,7 @@
 
           <div>
             <div style="float:right">
-              <v-btn color="#921414" @click="">Salvar</v-btn>
+              <v-btn color="#921414" @click="update()">Salvar</v-btn>
             </div>
             <div style="float:left">
               <v-btn to="/user/profile" color="#A2706E">Voltar</v-btn>
@@ -78,27 +78,40 @@ export default {
       show: false,
     };
   },
+
+  created() {
+    this.$axios.$get(`/users/list`).then((response) => {
+      this.register = response.user;
+    });
+  },
+
+
   methods: {
-
-    create() {
-
+    update() {
+      const user_id = localStorage.getItem("user");
+      const data = {};
+      if (this.register.name !== "") {
+        data.name = this.register.name;
+      }
+      if (this.register.cpf !== "") {
+        data.cpf = this.register.cpf;
+      }
+      if (this.register.email !== "") {
+        data.email = this.register.email;
+      }
+      if (this.register.phone !== "") {
+        data.phone_number = this.register.phone;
+      }
+      if (this.register.password !== "") {
+        data.hashed_password = this.register.password;
+      }
       this.$axios
-        .$post("/account/create", {
-          id: "",
-          name: this.register.name,
-          cpf: this.register.cpf,
-          email: this.register.email,
-          phone_number: this.register.phone,
-          user_type: "0",
-          available: true,
-          hashed_password: this.register.password,
+        .$put(`/users/${user_id}`, data)
+        .then(() => {
+          this.$toast.success("Usuário atualizado com sucesso!", {duration: 3000});
+          this.$router.push("/user/profile");
         })
-        .then((response) => {
-          console.table(response),
-            this.$toast.success("Conta cadastrada com sucesso!", { duration: 3000 }),
-            this.$router.push("/login");
-        })
-        .catch(() => { });
+        .catch(() => {});
     },
   },
 };
