@@ -19,101 +19,70 @@
   </v-card>
       </v-col>
 
+      <v-col cols="12" lg="6">
+        <v-card color="#921414">
+          <v-card-item>
+            <v-card-title>Nome do espaço</v-card-title>
 
+            <v-card-subtitle>Descrição descrição descrição descrição descrição</v-card-subtitle>
+          </v-card-item>
 
-  <v-col cols="12" lg = "6">
-    <v-card color="#921414">
-      <v-card-item>
-        <v-card-title>Nome do espaço</v-card-title>
-
-        <v-card-subtitle>Descrição descrição descrição descrição descrição</v-card-subtitle>
-      </v-card-item>
-
-      <v-card-text>
-        <div class="text-subtitle-1">
-        Iluminação: S/N
+          <v-card-text>
+            <div class="text-subtitle-1">
+              Iluminação: S/N
+            </div>
+            <div class="text-subtitle-1">
+              Coberto: S/N
+            </div>
+            <div class="text-subtitle-1">
+              Tipo de piso: Tip
+            </div>
+          </v-card-text>
+        </v-card>
+        <div style="margin:2%">
+          <div style="float:right">
+            <v-btn to="/reservation/new-reservation" color="#921414" @click="">Reservar</v-btn>
+          </div>
+          <div style="float:left">
+            <v-btn to="/dashboard" color="#A2706E">Voltar</v-btn>
+          </div>
         </div>
-        <div class="text-subtitle-1">
-        Coberto: S/N
-        </div>
-        <div class="text-subtitle-1">
-        Tipo de piso: Tip
-        </div>
-      </v-card-text>
-    </v-card>
-                <div style="margin:2%">
-                <div style="float:right">
-                  <v-btn to="/reservation/new-reservation"color="#921414" @click="">Reservar</v-btn>
-                </div>
-                <div style="float:left">
-                  <v-btn to="/dashboard" color="#A2706E">Voltar</v-btn>
-                </div>
-                </div>
 
-    </v-col>
+      </v-col>
     </v-row>
 
-   <v-row  style="margin:2%">
-    <v-col cols="12" lg = "12">
-<template>
-  <v-layout wrap>
-    <v-flex
-      xs12
-      class="mb-3"
-    >
-      <v-sheet height="500">
-        <v-calendar
-          ref="calendar"
-          v-model="start"
-          :type="type"
-          :end="end"
-          color="primary"
-          light
-        ></v-calendar>
-      </v-sheet>
-    </v-flex>
+    <v-row style="margin:2%">
+      <v-col cols="12" lg="12">
+        <template>
+          <v-layout wrap>
+            <v-flex xs12 class="mb-3">
+              <v-sheet height="500">
+                <v-calendar ref="calendar" v-model="start" :type="type" :end="end" color="primary" light></v-calendar>
+              </v-sheet>
+            </v-flex>
 
-    <v-flex
-      sm4
-      xs12
-      class="text-sm-left text-xs-center"
-    >
-      <v-btn @click="$refs.calendar.prev()" color="#921414">
-        <v-icon
-          dark
-          left
-        >
-          <
-        </v-icon>
-        Anterior
-      </v-btn>
-    </v-flex>
-    <v-flex
-      sm4
-      xs12
-      class="text-xs-center"
-    >
-      s
-    </v-flex>
-    <v-flex
-      sm4
-      xs12
-      class="text-sm-right text-xs-center"
-    >
-      <v-btn @click="$refs.calendar.next()" color="#921414">
-        Próximo
-        <v-icon
-          right
-          dark
-        >
-          >
-        </v-icon>
-      </v-btn>
-    </v-flex>
-  </v-layout>
-</template>
+            <v-flex sm4 xs12 class="text-sm-left text-xs-center">
+              <v-btn @click="$refs.calendar.prev()" color="#921414">
+                <v-icon dark left>
+                  < </v-icon>
+                    Anterior
+              </v-btn>
+            </v-flex>
+            <v-flex sm4 xs12 class="text-xs-center">
+              s
+            </v-flex>
+            <v-flex sm4 xs12 class="text-sm-right text-xs-center">
+              <v-btn @click="$refs.calendar.next()" color="#921414">
+                Próximo
+                <v-icon right dark>
+                  >
+                </v-icon>
+              </v-btn>
+            </v-flex>
+          </v-layout>
+        </template>
 
-    </v-col>
+      </v-col>
     </v-row>
 
 
@@ -132,12 +101,10 @@
 
   }
 </script>
-content_copy
 
-﻿
 
 <style scoped>
-.v-card{
+.v-card {
   margin: 2%;
 }
 </style>

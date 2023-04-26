@@ -1,11 +1,10 @@
 <template>
-  <div>
-  <DashboardComponent />
+ <div> 
   <v-row justify="center">
       <v-card class="d-flex flex-column justify-center text-center"
               color="grey lighten-5">
         <v-toolbar height="55" color="#921414">
-                <v-toolbar-title>Novo Espaço</v-toolbar-title>
+                <v-toolbar-title>Novo espaço</v-toolbar-title>
         </v-toolbar>
         <v-card-text>
           <v-container>
@@ -133,7 +132,8 @@
 <script>
   export default {
     name: "Area",
-  
+    layout: "menu",
+    
     data() {
       return {
         terms: false,

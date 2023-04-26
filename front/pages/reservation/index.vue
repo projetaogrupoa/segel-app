@@ -1,5 +1,5 @@
 <template>
-  <div style="width:80%;margin-left: 20%;"> 
+  <div style="width:80%;"> 
     <DashboardComponent />
 
         <v-row justify="end" style="margin-top: 1%">
@@ -65,6 +65,8 @@
  
 <script>
   export default {
+    layout: "menu",
+    
     data: () => ({
       expand: false,
       time: 0,
