@@ -6,7 +6,7 @@
         <v-btn color="#921414" to="/reservation/in-analysis">Em análise</v-btn>
         <v-btn color="#A2706E" to="/reservation/rejected">Rejeitadas</v-btn>
       </v-col>
-</v-row>
+    </v-row>
 
   <v-row text-color:black>
 <template v-for="reservation in reservations">
@@ -17,7 +17,6 @@
       light
     >
     <v-card-title>
-        {{ reservation.area_id }} 
       </v-card-title>
       <v-card-text>
             <v-list-item-title>Tipo de reserva: {{ reservation.reservation_type }} </v-list-item-title>

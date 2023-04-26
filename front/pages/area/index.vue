@@ -1,7 +1,6 @@
 <template>
   <div> 
 
-  <DashboardComponent />
 <template v-for="area in areas">
   <v-row justify="center" style="margin:5%">
       <v-col cols="12" lg = "6">
@@ -58,16 +57,21 @@
           <v-layout wrap>
             <v-flex xs12 class="mb-3">
               <v-sheet height="500">
-                <v-calendar ref="calendar" v-model="start" :type="type" :end="end" color="primary" light></v-calendar>
+                <v-calendar ref="calendar"
+			        :events="events"
+			        type="week"
+			        event-color="#921414"
+			        now= "2022-04-23" light			      >
+			      </v-calendar>
               </v-sheet>
             </v-flex>
 
             <v-flex sm4 xs12 class="text-sm-left text-xs-center">
               <v-btn @click="$refs.calendar.prev()" color="#921414">
                 <v-icon dark left>
-                  </v-icon>
+                  < </v-icon>
                     Anterior
-                  </v-btn>
+              </v-btn>
             </v-flex>
             <v-flex sm4 xs12 class="text-xs-center">
               s
@@ -92,13 +96,34 @@
 
 <script>
   export default {
-    name: "Area",
+    layout: "menu",
+    name: "App",
     data() {
       return {
         areas: [],
         type: 'week',
         start: '2023-04-23',
         end: '2023-04-29',
+        events: [
+        {
+          name: 'Event 1',
+          start: '2023-04-23T02:00:00',
+          end: '2023-04-23T04:00:00',
+          timed: true,
+        },
+        {
+          name: 'Event 2',
+          start: '2023-04-24T08:00:00',
+          end: '2023-04-24T10:00:00',
+          timed: true,
+        },
+        {
+          name: 'Event 3',
+          start: '2023-04-25T04:00:00',
+          end: '2023-04-25T06:00:00',
+          timed: true,
+        },
+      ],
       }
     },
     mounted() {

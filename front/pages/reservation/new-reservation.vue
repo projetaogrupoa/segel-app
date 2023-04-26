@@ -9,13 +9,12 @@
           <v-container>
             <v-row>
               <v-col cols="12" sm="6" md="6">
-                <v-text-field v-model="register.value" color="black" label="Título" light variant="underlined"
-                  class="v-text-field--outlined text-black" outlined></v-text-field>
-              </v-col>
-
-              <v-col cols="12" sm="6" md="6">
                 <v-select v-model="register.lights" color="black" light label="Espaço" variant="underlined"
                   :items="['Campo A', 'Campo B', 'etc']" outlined disabled></v-select>
+              </v-col>
+              <v-col cols="12" sm="6" md="6">
+                <v-select v-model="register.type" color="black" light label="Tipo" variant="underlined"
+                  :items="['Aula', 'Pesquisa/Extenção', 'Outros']" outlined></v-select>
               </v-col>
 
               <v-col cols="12">
@@ -25,24 +24,19 @@
 
               </v-col>
 
-              <v-col cols="12" sm="3">
+              <v-col cols="12" sm="4">
                 <v-text-field v-model="register.reservation_date" color="black" light label="Data da Reserva"
-                  variant="underlined" class="v-text-field--outlined text-black" type="date" outlined
-                ></v-text-field>
+                  variant="underlined" class="v-text-field--outlined text-black" type="date" outlined></v-text-field>
               </v-col>
-              <v-col cols="12" sm="3">
+              <v-col cols="12" sm="4">
                 <v-text-field v-model="register.time_start" color="black" light label="Horário de Início" variant="underlined"
                   class="v-text-field--outlined text-black" outlined type="time"></v-text-field>
               </v-col>
-              <v-col cols="12" sm="3">
+              <v-col cols="12" sm="4">
                 <v-text-field v-model="register.time_end" color="black" light label="Horário de Fim"
                   variant="underlined" class="v-text-field--outlined text-black" outlined type="time"></v-text-field>
               </v-col>
 
-              <v-col cols="12" sm="3">
-                <v-select v-model="register.type" color="black" light label="Tipo" variant="underlined"
-                  :items="['Aula', 'Pesquisa/Extenção', 'Outros']" outlined></v-select>
-              </v-col>
             </v-row>
           </v-container>
 
@@ -99,7 +93,7 @@ export default {
         })
         .then((response) => {
           console.table(response),
-            this.$toast.success("Reserva cadastrada com sucesso!"),
+            this.$toast.success("Reserva cadastrada com sucesso!", { duration: 3000 }),
             this.$router.push("/dashboard");
         })
         .catch(() => { });
